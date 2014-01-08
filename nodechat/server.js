@@ -62,3 +62,30 @@ server.listen(3000, function(){
 
 var chatServer = require('./lib/chat_server');
 chatServer.listen(server);
+
+
+function handleMessageBroadcasting(socket){
+    socket.on('message', function (message){
+        socket.broadcast.to(message.room).emit('message', {
+            text: nickNames[socket.id] + ': ' + message.text
+        });
+    });
+}
+
+
+function handleRoomJoining(socket){
+    socket.on('join', function(room){
+        socket.level(currentRoom[socket.id]);
+        joinRoom(socket, room.newRoom);
+    });
+}
+
+
+function handleClientDisconnecting(socket){
+    socket.on('disconnect', function(){
+        var nameIndex = namesUsed.indexOf(nickNames[socket.id]);
+        delete namesUsed[nameIndex];
+        delete nickNames[socket.id];
+    });
+}
+
