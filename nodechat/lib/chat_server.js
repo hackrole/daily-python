@@ -85,7 +85,7 @@ function handleNameChangeAttempts(socket, nickName, namesUsed){
                     name: name
                 });
                 socket.broadcast.to(currentRoom[socket.id]).emit('message', {
-                    text: previouseName + ' is now known as ' + name + '.';
+                    text: previouseName + ' is now known as ' + name + '.'
                 });
             }else{
                 socket.emit('nameResult', {
