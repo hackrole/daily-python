@@ -1,0 +1,9 @@
+{
+    "name": "charrooms",
+    "version": "0.0.1",
+    "descriptioin": "minimalist multi-room char server",
+    "dependencies": {
+        "socket.io": "~0.9.6",
+        "mime": "~1.2.7"
+    }
+}
