@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "hello"
+version = "0.1.0"
+description = ""
+authors = ["peng.dai <peng.dai@leyantech.com>"]
+
+[[tool.poetry.source]]
+default = false
+name = "douban"
+url = "https://pypi.doubanio.com/simple"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.85.0"
+uvicorn = { extras = ["standard"], version = "^0.18.3", source = "douban" }
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

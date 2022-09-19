@@ -1,0 +1,5 @@
+* about
+** run project
+  #+begin_src bash :tangle
+    uvicorn main:app --reload
+  #+end_src
